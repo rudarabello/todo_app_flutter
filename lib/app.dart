@@ -1,5 +1,5 @@
 import 'package:todo_app_flutter/design_system/my_color.dart';
-import 'package:todo_app_flutter/design_system/text_theme.dart';
+import 'package:todo_app_flutter/design_system/app_theme.dart';
 import 'package:todo_app_flutter/features/authentication/splash.dart';
 //import 'package:todo_app_flutter/features/home/home_page.dart';
 import 'package:todo_app_flutter/features/login/login_page.dart';

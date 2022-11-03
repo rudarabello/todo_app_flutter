@@ -1,3 +1,4 @@
+import 'package:todo_app_flutter/design_system/my_color.dart';
 import 'package:todo_app_flutter/features/login/login_controller.dart';
 import 'package:todo_app_flutter/features/login/login_states.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,10 @@ class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final ButtonStyle style = ElevatedButton.styleFrom(
+    textStyle: const TextStyle(fontSize: 20),
+    backgroundColor: MyColor.primary,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -20,21 +25,9 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(height: kToolbarHeight),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Spacer(),
-                  const SizedBox(width: 8),
-                  Text('',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline5),
-                  const Spacer(),
-                ],
-              ),
-              const SizedBox(height: 100),
-              const SizedBox(height: 16),
+              const SizedBox(height: 150),
               TextFormField(
+                style: const TextStyle(fontSize: 20),
                 validator: (value) {
                   if (value?.isEmpty ?? true) {
                     return 'Email obrigatório';
@@ -48,6 +41,7 @@ class LoginPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               TextFormField(
+                style: const TextStyle(fontSize: 20),
                 controller: passwordController,
                 decoration: InputDecoration(
                   hintText: 'Senha',
@@ -61,16 +55,18 @@ class LoginPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
+                    padding: const EdgeInsets.only(top: 48.0),
                     child: Text('Recuperar senha',
-                        style: Theme.of(context).textTheme.subtitle1),
+                        style: Theme.of(context).textTheme.titleMedium),
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 50),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
+                  // ignore: prefer_const_constructors
+                  style: style,
                   onPressed: () async {
                     final navigator = Navigator.of(context);
                     if (_formKey.currentState?.validate() ?? false) {
@@ -102,45 +98,6 @@ class LoginPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class SocialButton extends StatelessWidget {
-  final String text;
-  final String imagePath;
-  final VoidCallback onPressed;
-
-  const SocialButton({
-    Key? key,
-    required this.imagePath,
-    required this.text,
-    required this.onPressed,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Image.asset(
-            imagePath,
-            color: const Color(0xFFFFC82C),
-            height: 32,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              text,
-              style: const TextStyle(
-                color: Color(0xFFFFC82C),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
