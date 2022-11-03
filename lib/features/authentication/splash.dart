@@ -16,7 +16,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 8)).then((value) {
+    Future.delayed(const Duration(seconds: 5)).then((value) {
       controller.isAuthenticated().then((value) {
         if (value is SplashStateAuthenticated) {
           Navigator.of(context).pushReplacementNamed('home');
