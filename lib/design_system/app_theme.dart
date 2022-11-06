@@ -8,7 +8,7 @@ class AppTheme {
     return ThemeData(
       brightness: Brightness.dark,
       // ignore: prefer_const_constructors
-      colorScheme: ColorScheme(
+      colorScheme: const ColorScheme(
         background: MyColor.black,
         brightness: Brightness.dark,
         error: MyColor.error,
@@ -28,19 +28,20 @@ class AppTheme {
     return ThemeData(
       brightness: Brightness.light,
       // ignore: prefer_const_constructors
-      colorScheme: ColorScheme(
-        background: MyColor.white,
-        brightness: Brightness.dark,
-        error: MyColor.error,
-        onBackground: MyColor.black,
-        onError: MyColor.error,
-        onPrimary: MyColor.lightGrey,
-        onSurface: MyColor.white,
-        onSecondary: MyColor.lightGrey,
-        primary: MyColor.primary,
-        secondary: MyColor.secondary,
-        surface: MyColor.darkGrey,
-      ),
+      colorScheme: const ColorScheme(
+              brightness: Brightness.light,
+              primary: MyColor.primary,
+              onPrimary: MyColor.black,
+              secondary: MyColor.secondary,
+              onSecondary: MyColor.white,
+              error: MyColor.error,
+              onError: MyColor.black,
+              background: MyColor.black,
+              onBackground: MyColor.white,
+              surface: MyColor.darkGrey,
+              onSurface: MyColor.white)
+          .copyWith(background: MyColor.black)
+          .copyWith(error: MyColor.error),
     );
   }
 
