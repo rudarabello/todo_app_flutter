@@ -1,5 +1,5 @@
-import 'package:todo_app_flutter/features/authentication/splash_states.dart';
-import 'package:todo_app_flutter/shared/application_keys/shared_preferences_keys.dart';
+import 'package:todo_app_flutter/features/splash/splash_states.dart';
+import 'package:todo_app_flutter/shared/shared_preferences_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashController {

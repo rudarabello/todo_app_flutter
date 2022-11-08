@@ -1,5 +1,5 @@
-import 'package:todo_app_flutter/features/authentication/splash_controller.dart';
-import 'package:todo_app_flutter/features/authentication/splash_states.dart';
+import 'package:todo_app_flutter/features/splash/splash_controller.dart';
+import 'package:todo_app_flutter/features/splash/splash_states.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -16,7 +16,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 5)).then((value) {
+    Future.delayed(const Duration(seconds: 3)).then((value) {
       controller.isAuthenticated().then((value) {
         if (value is SplashStateAuthenticated) {
           Navigator.of(context).pushReplacementNamed('home');
@@ -45,7 +45,7 @@ class _SplashPageState extends State<SplashPage> {
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme
-                    .headline4
+                    .headlineMedium
                     ?.apply(fontSizeFactor: 0.8),
               ),
             ),
