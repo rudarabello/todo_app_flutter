@@ -1,4 +1,4 @@
-import 'package:todo_app_flutter/shared/application_keys/shared_preferences_keys.dart';
+import 'package:todo_app_flutter/shared/shared_preferences_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'login_states.dart';
