@@ -3,7 +3,7 @@ import 'package:todo_app_flutter/features/splash/splash.dart';
 import 'package:todo_app_flutter/features/home/home_page.dart';
 import 'package:todo_app_flutter/features/login/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app_flutter/model/todo_model.dart';
+import 'package:todo_app_flutter/models/todo_model.dart';
 import 'features/create_todo/create_todo.dart';
 
 class App extends StatelessWidget {
@@ -17,8 +17,8 @@ class App extends StatelessWidget {
       home: const SplashPage(),
       routes: {
         'splash': (context) => const SplashPage(),
+        'home': (context) => const HomePage(title: 'Todo App'),
         'login': (context) => LoginPage(),
-        'home': (context) => const HomePage(title: 'Rudá Profile'),
       },
       onGenerateRoute: (settings) {
         if (settings.name == 'create-todo') {
