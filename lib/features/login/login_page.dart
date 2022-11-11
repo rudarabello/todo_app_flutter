@@ -3,9 +3,15 @@ import 'package:todo_app_flutter/features/login/login_controller.dart';
 import 'package:todo_app_flutter/features/login/login_states.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   static const routeName = '/login';
-  LoginPage({Key? key}) : super(key: key);
+  const LoginPage(BuildContext context, {super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final controller = LoginController();
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
@@ -14,6 +20,14 @@ class LoginPage extends StatelessWidget {
     textStyle: const TextStyle(fontSize: 20),
     backgroundColor: MyColor.primary,
   );
+
+  bool _isVisible = false;
+
+  void updateVisibilityOfPassword() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +60,13 @@ class LoginPage extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'Senha',
                   suffixIcon: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.visibility_off),
+                    onPressed: () => updateVisibilityOfPassword(),
+                    icon: Icon(
+                        _isVisible ? Icons.visibility : Icons.visibility_off),
                   ),
                 ),
+                obscureText: _isVisible ? false : true,
+                obscuringCharacter: '*',
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,

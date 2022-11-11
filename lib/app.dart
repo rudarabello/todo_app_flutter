@@ -18,7 +18,7 @@ class App extends StatelessWidget {
       routes: {
         'splash': (context) => const SplashPage(),
         'home': (context) => const HomePage(title: 'Todo App'),
-        'login': (context) => LoginPage(),
+        'login': (context) => LoginPage(context),
       },
       onGenerateRoute: (settings) {
         if (settings.name == 'create-todo') {
