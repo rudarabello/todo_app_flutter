@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app_flutter/design_system/my_color.dart';
 
 class MyBottomBar extends StatefulWidget {
   //final void Function(int index) changePage;
@@ -14,6 +15,7 @@ class _MyBottomBarState extends State<MyBottomBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: MyColor.darkGrey,
       onTap: (value) {
         setState(() {
           index = value;
@@ -25,12 +27,12 @@ class _MyBottomBarState extends State<MyBottomBar> {
       currentIndex: index,
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
-        ),
-        BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'Profile',
         ),
       ],
     );

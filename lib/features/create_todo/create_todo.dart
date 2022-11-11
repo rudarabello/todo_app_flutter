@@ -1,4 +1,4 @@
-import 'package:todo_app_flutter/model/todo_model.dart';
+import 'package:todo_app_flutter/models/todo_model.dart';
 import 'package:flutter/material.dart';
 
 class CreateTodo extends StatelessWidget {

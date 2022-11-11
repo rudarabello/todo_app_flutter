@@ -1,8 +1,9 @@
+import 'package:todo_app_flutter/design_system/my_color.dart';
 import 'package:todo_app_flutter/features/home/home_controller.dart';
-import 'package:todo_app_flutter/model/todo_model.dart';
+import 'package:todo_app_flutter/features/home/widgets/constructWidgetOnPage.dart';
+import 'package:todo_app_flutter/models/todo_model.dart';
 import 'package:flutter/material.dart';
 
-import 'home_states.dart';
 import 'widgets/widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,6 +34,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: MyColor.darkGrey,
         title: Text(
           widget.title,
           style: Theme.of(context)
@@ -47,8 +49,9 @@ class _HomePageState extends State<HomePage> {
         controller: pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
+          ConstructWidgetOnPage(controller: controller),
           Container(
-            color: Colors.pink,
+            color: MyColor.black,
             child: Center(
               child: ElevatedButton(
                 onPressed: () {
@@ -58,7 +61,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          BuildWidget(controller: controller),
         ],
       ),
       floatingActionButtonLocation:
@@ -67,7 +69,7 @@ class _HomePageState extends State<HomePage> {
         onPressed: () async {
           final result = await Navigator.of(context).pushNamed<TodoModel>(
             'create-todo',
-            arguments: 'Kaio',
+            arguments: 'create new task',
           );
           if (result != null) {
             controller.addTodo(result);
@@ -76,37 +78,6 @@ class _HomePageState extends State<HomePage> {
         child: const Icon(Icons.add),
       ),
       bottomNavigationBar: MyBottomBar(changePage: changePage),
-    );
-  }
-}
-
-class BuildWidget extends StatelessWidget {
-  final HomeController controller;
-  const BuildWidget({Key? key, required this.controller}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Builder(
-      builder: ((context) {
-        if (controller.state is HomeStateLoading) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (controller.state is HomeStateError) {
-          return const Center(
-            child: Text('Ops, houve um erro'),
-          );
-        } else {
-          return ListView.builder(
-            itemCount: controller.todos.length,
-            itemBuilder: (context, index) {
-              final item = controller.todos[index];
-              return ListTile(
-                title: Text(item.title),
-                subtitle: Text(item.description),
-              );
-            },
-          );
-        }
-      }),
     );
   }
 }

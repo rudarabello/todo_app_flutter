@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:todo_app_flutter/features/home/home_states.dart';
-import 'package:todo_app_flutter/model/todo_model.dart';
+import 'package:todo_app_flutter/models/todo_model.dart';
 import 'package:todo_app_flutter/shared/shared_preferences_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
