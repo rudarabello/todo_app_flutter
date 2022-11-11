@@ -23,6 +23,10 @@ class _HomePageState extends State<HomePage> {
     pageController.jumpToPage(index);
   }
 
+  void _close() {
+    Navigator.of(context).pushReplacementNamed('login');
+  }
+
   @override
   void initState() {
     super.initState();
@@ -54,8 +58,9 @@ class _HomePageState extends State<HomePage> {
             color: MyColor.black,
             child: Center(
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   controller.logout();
+                  _close();
                 },
                 child: const Text('Logout'),
               ),

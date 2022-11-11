@@ -1,5 +1,5 @@
 import 'package:todo_app_flutter/design_system/app_theme.dart';
-import 'package:todo_app_flutter/features/splash/splash.dart';
+import 'package:todo_app_flutter/features/splash/splash_page.dart';
 import 'package:todo_app_flutter/features/home/home_page.dart';
 import 'package:todo_app_flutter/features/login/login_page.dart';
 import 'package:flutter/material.dart';
